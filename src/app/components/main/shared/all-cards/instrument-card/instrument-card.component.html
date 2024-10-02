@@ -1,0 +1,17 @@
+<button
+  class="group overflow-hidden bg-white shadow-md text-slate-500 shadow-slate-200"
+  data-aos="flip-left"
+  data-aos-easing="ease-out-cubic"
+  data-aos-duration="2000"
+>
+  <!-- Image -->
+  <figure class="relative">
+    <img [src]="img" alt="card image" class="aspect-video w-full h-96" />
+    <figcaption
+      class="opacity-0 group-hover:opacity-100 absolute bottom-0 left-0 w-full p-6 text-white bg-slate-900 bg-opacity-60"
+    >
+      <h3 class="text-lg font-medium capitalize">{{ title }}</h3>
+      <p class="text-sm opacity-75">Made in {{ origin }}</p>
+    </figcaption>
+  </figure>
+</button>

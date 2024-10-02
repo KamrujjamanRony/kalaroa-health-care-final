@@ -1,0 +1,17 @@
+<div
+  class="card group bg-primary shadow-xl w-full h-96 image-full-custom cursor-pointer rounded-none"
+  data-aos="flip-left"
+  data-aos-easing="ease-out-cubic"
+  data-aos-duration="2000"
+>
+  <div class="hero-overlay bg-opacity-100 group-hover:z-20"></div>
+  <figure class="h-full w-full object-cover">
+    <img class="h-full w-full object-cover" [src]="img" [alt]="title" />
+  </figure>
+  <div
+    class="text-white z-30 p-2 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100"
+  >
+    <h2 class="card-title">{{ title }}</h2>
+    <p class="text-justify">{{ description }}</p>
+  </div>
+</div>

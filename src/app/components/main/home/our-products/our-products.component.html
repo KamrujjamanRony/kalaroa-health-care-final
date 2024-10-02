@@ -1,0 +1,30 @@
+@if (instruments) {
+<section class="pb-10">
+  <div class="container mx-auto text-center">
+    <h1
+      class="text-4xl my-20 font-bold text-primary uppercase border-b-4 border-primary w-fit mx-auto"
+    >
+      Instrument Gallery
+    </h1>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for (instrument of instruments; track instrument.id) {
+      <app-instrument-card
+        [img]="instrument.pUrl"
+        [title]="instrument.productName"
+        [origin]="instrument.orgin"
+      />
+      }
+    </div>
+    <a
+      routerLink="/gallery/instrument"
+      data-aos="zoom-in"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      class="px-8 py-4 bg-primary text-white inline-block mt-8 font-semibold uppercase"
+      (click)="scrollToTop()"
+    >
+      More
+    </a>
+  </div>
+</section>
+}

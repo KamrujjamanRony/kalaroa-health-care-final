@@ -1,0 +1,289 @@
+<app-cover title="Update Doctor information" sub1="MIS" sub2="Edit Doctor"></app-cover>
+
+@if (model) {
+  <div class="w-full max-w-7xl mx-auto">
+    <form
+      #form="ngForm"
+      (ngSubmit)="onFormSubmit()"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    >
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="drName">
+          Name <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="drName"
+          name="drName"
+          type="text"
+          placeholder="Type here"
+          [(ngModel)]="model.drName"
+        />
+      </div>
+      <div class="mb-4">
+        <label for="imageFile" class="block text-gray-700 text-sm font-bold mb-2"
+          >Doctor Image</label
+        >
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="imageUrl"
+          name="imageUrl"
+          type="text"
+          placeholder="Type here"
+          [(ngModel)]="model.imageUrl"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="hospitalCode"
+        >
+          Doctor Serial <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="drSerial"
+          name="drSerial"
+          type="number"
+          placeholder="Type here"
+          [(ngModel)]="model.drSerial"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="degree">
+          Degree <span class="text-red-600">*</span>
+        </label>
+        <textarea
+          name="degree"
+          id="degree"
+          id="degree"
+          class="shadow appearance-none border border-base-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          cols="10"
+          rows="2"
+          placeholder="Type here"
+          [(ngModel)]="model.degree"
+        ></textarea>
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="designation"
+        >
+          Designation <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="designation"
+          name="designation"
+          type="text"
+          placeholder="Type here"
+          [(ngModel)]="model.designation"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="specialty">
+          Specialty <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="specialty"
+          name="speciality"
+          type="text"
+          placeholder="Type here"
+          [(ngModel)]="model.specialty"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="depName">
+          Department <span class="text-red-600">*</span>
+        </label>
+        <select
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="departmentId"
+          name="departmentId"
+          type="text"
+          [(ngModel)]="model.departmentId"
+        >
+        <option value="" disabled>Select Department</option>
+        @for (department of departments; track department.id) {
+        <option [value]="department?.id">
+          {{ department?.departmentName }}
+        </option>
+        } @empty {
+        <li>No Department found</li>
+        }</select>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+          Doctor Fee <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="fee"
+          name="fee"
+          type="number"
+          placeholder="Type here"
+          [(ngModel)]="model.fee"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+          Phone <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="phone"
+          name="phone"
+          type="text"
+          placeholder="Type here"
+          [(ngModel)]="model.phone"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="visitTime">
+          Visit Time <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="visitTime"
+          name="visitTime"
+          type="text"
+          placeholder="Type here"
+          [(ngModel)]="model.visitTime"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="roomNo">
+          Room No
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          name="roomNo"
+          id="roomNo"
+          type="text"
+          placeholder="Type here"
+          [(ngModel)]="model.room"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="notice">
+          Notice
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          name="notice"
+          id="notice"
+          type="text"
+          placeholder="Type here"
+          [(ngModel)]="model.notice"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="description"
+        >
+          Description
+        </label>
+        <textarea
+          name="description"
+          id="description"
+          id="description"
+          class="shadow appearance-none border border-base-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          cols="30"
+          rows="10"
+          placeholder="Type here"
+          [(ngModel)]="model.description"
+        ></textarea>
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="additional"
+        >
+          Additional Information
+        </label>
+        <textarea
+          name="additional"
+          id="additional"
+          id="additional"
+          class="shadow appearance-none border border-base-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          cols="30"
+          rows="10"
+          placeholder="Type here"
+          [(ngModel)]="model.additional"
+        ></textarea>
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="serialBlock"
+        >
+          Block Serial <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="serialBlock"
+          name="serialBlock"
+          type="text"
+          placeholder="Type here"
+          [(ngModel)]="model.serialBlock"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="newPatientLimit"
+        >
+        New Patient Limit <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="newPatientLimit"
+          name="newPatientLimit"
+          type="number"
+          placeholder="Type here"
+          [(ngModel)]="model.newPatientLimit"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="oldPatientLimit"
+        >
+        Old Patient Limit <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="oldPatientLimit"
+          name="oldPatientLimit"
+          type="number"
+          placeholder="Type here"
+          [(ngModel)]="model.oldPatientLimit"
+        />
+      </div>
+      <input
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        value="Add Doctor"
+      />
+    </form>
+  </div>
+} @else {
+  <div
+  class="block text-white mt-10 mb-4 mx-auto h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+  role="status"
+>
+  <span
+    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+    >Loading...</span
+  >
+</div>
+}
+
+
+@if(confirmModal){
+  <confirm-modal title="Doctor is successfully updated!" url="/mis/doctors" (closeModal)="closeModal()" />
+}
+

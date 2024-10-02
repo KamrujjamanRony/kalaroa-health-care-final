@@ -1,0 +1,44 @@
+<div
+  class="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm flex justify-center items-center"
+>
+  <div class="rounded-xl max-w-[840px] w-full max-h-[90vh] overflow-y-auto">
+    <div class="bg-primary-900 text-white p-6 space-y-6 rounded-lg shadow-lg">
+      <div class="flex justify-between">
+        <h2 class="text-2xl font-bold text-center w-full">
+          BOOK AN APPOINTMENT
+        </h2>
+
+        <button
+          class="rounded bg-red-600 px-2 tb-2 w-8 h-8 text-center text-white transition-all hover:opacity-80"
+          (click)="closeAppointmentModal()"
+        >
+          X
+        </button>
+      </div>
+
+      <div class="w-full text-center text-lg">
+        @if (selectedDoctor) {
+        <h1 class="">নামঃ {{ selectedDoctor?.drName }}</h1>
+        }
+        <h1 class="">
+          সিরিয়ালের জন্য ০১৭৬৭৬৩৭৩৩৭ নাম্বারে কল করুন।
+        </h1>
+        <h1 class="">সময়ঃ  {{ selectedDoctor?.visitTime }}</h1>
+        @if (selectedDoctor?.notice) {
+          <h1 class="text-rose-600 font-bold">নোটিস : {{ selectedDoctor?.notice }}</h1>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+@if(confirmModal){
+<confirm-modal
+  [title]="
+    selected
+      ? 'Appointment is successfully updated!'
+      : 'Appointment is successfully added!'
+  "
+  (closeModal)="closeModal()"
+/>
+}

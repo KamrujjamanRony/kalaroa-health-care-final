@@ -1,0 +1,40 @@
+@if (slideImages.length > 0) {
+  <swiper-container
+  navigation="true"
+  pagination="true"
+  pagination-clickable="true"
+  autoplay-delay="2500"
+  autoplay-disable-on-interaction="false"
+>
+  @for(slide of slideImages; track slide){
+    <swiper-slide>
+      <div [style.backgroundImage]="'url(' + slide?.imageUrl + ')'" class="hero w-full h-[30vh] md:h-[50vh] lg:h-[93vh] bg-cover">
+        @if (slide?.title || slide?.description) {
+          <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div data-aos="zoom-in" class="max-w-lg">
+            @if (slide?.title) {
+              <p class="text-sm md:text-lg lg:text-2xl tracking-[.15em] mb-5 uppercase">
+                {{slide?.title}}
+              </p>
+            }
+            @if (slide?.description) {
+              <h1 class="block md:hidden mb-5 text-md font-light capitalize">{{slide?.description}}</h1>
+            }
+            <a routerLink="contact" class="btn btn-xs md:btn-md lg:btn-lg btn-primary rounded-none text-white capitalize">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      }
+      </div>
+    </swiper-slide>
+  }
+  
+</swiper-container>
+} @else {
+  <section class="flex justify-center items-center h-[90vh]">
+    <span class="loading loading-bars text-rose-700 inline-block w-60"></span>
+  </section>
+}
+
